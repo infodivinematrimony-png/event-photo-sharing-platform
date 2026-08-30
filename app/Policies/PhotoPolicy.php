@@ -1,0 +1,1 @@
+<?php\n\nnamespace App\\Policies;\n\nuse App\\Models\\Photo;\nuse App\\Models\\User;\n\nclass PhotoPolicy\n{\n    /**\n     * Determine if user can delete the photo\n     */\n    public function delete(User $user, Photo $photo): bool\n    {\n        return $user->id === $photo->event->photographer_id;\n    }\n}\n
